@@ -1,4 +1,4 @@
-import User  from '../models/user.model.js' 
+import User from "../models/user.model.js";
 async function getAllUsers() {
   try {
     const users = await User.find();
@@ -7,4 +7,14 @@ async function getAllUsers() {
     console.error(err);
   }
 }
-export  {getAllUsers}
+
+const findUser = async (id) => {
+  try {
+    const user = await User.findById(id);
+    return user;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
+export { getAllUsers,findUser };
