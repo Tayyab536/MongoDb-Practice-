@@ -8,7 +8,7 @@ async function getAllUsers() {
   }
 }
 
-const findUser = async (id) => {
+const findUserById = async (id) => {
   try {
     const user = await User.findById(id);
     return user;
@@ -17,4 +17,12 @@ const findUser = async (id) => {
   }
 };
 
-export { getAllUsers,findUser };
+const findByName = async (name) => {
+  try {
+    const user = await User.findOne({ name: name });
+    return user;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+export { getAllUsers, findUserById ,findByName};
