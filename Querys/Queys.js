@@ -44,4 +44,17 @@ const findUserAge24 = async () => {
     throw new Error(e);
   }
 };
-export { getAllUsers, findUserById, findByName, findUserActive,findUserAge24 };
+//Find all users with age greater than 30.
+const findUserAgeGt30 = async () => {
+  try {
+    const user = await User.find({ age: {$gt : 30}});
+    return user;
+  } catch (e) {
+    console.log("error",e);
+    
+    throw new e;
+  }
+};
+
+
+export { getAllUsers, findUserById, findByName, findUserActive,findUserAge24,findUserAgeGt30 };
