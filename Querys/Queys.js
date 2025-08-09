@@ -38,7 +38,7 @@ const findUserActive = async () => {
 
 const findUserAge24 = async () => {
   try {
-    const user = await User.find({ age: 24});
+    const user = await User.find({ age: 24 });
     return user;
   } catch (e) {
     throw new Error(e);
@@ -47,14 +47,32 @@ const findUserAge24 = async () => {
 //Find all users with age greater than 30.
 const findUserAgeGt30 = async () => {
   try {
-    const user = await User.find({ age: {$gt : 30}});
+    const user = await User.find({ age: { $gt: 30 } });
     return user;
   } catch (e) {
-    console.log("error",e);
-    
-    throw new e;
+    console.log("error", e);
+
+    throw new e();
   }
 };
+// Find all users whose age is between 25 and 35 inclusive.
 
+const findUserAge25BT30 = async () => {
+  try {
+    const user = await User.find({ age: { $gte: 25  , $lte :35  } });
+    return user;
+  } catch (e) {
+    console.log("error", e);
 
-export { getAllUsers, findUserById, findByName, findUserActive,findUserAge24,findUserAgeGt30 };
+    throw new e();
+  }
+};
+export {
+  getAllUsers,
+  findUserById,
+  findByName,
+  findUserActive,
+  findUserAge24,
+  findUserAgeGt30,
+  findUserAge25BT30
+};
