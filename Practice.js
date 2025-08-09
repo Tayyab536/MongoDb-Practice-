@@ -7,7 +7,8 @@ import {
   findUserActive,
   findUserAge24,
   findUserAgeGt30,
-  findUserAge25BT30
+  findUserAge25BT30,
+  findUserStartA
 } from "./Querys/Queys.js";
 
 ConnectionDataBase()
@@ -20,7 +21,8 @@ ConnectionDataBase()
     // const user=await findUserActive()
     // const user=await findUserAge24()
     // const user = await findUserAgeGt30();
-    const user = await findUserAge25BT30();
+    // const user = await findUserAge25BT30();
+    const user = await findUserStartA();
     console.log("users");
     console.log(user);
     console.log("users length");

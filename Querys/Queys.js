@@ -59,7 +59,19 @@ const findUserAgeGt30 = async () => {
 
 const findUserAge25BT30 = async () => {
   try {
-    const user = await User.find({ age: { $gte: 25  , $lte :35  } });
+    const user = await User.find({ age: { $gte: 25, $lte: 35 } });
+    return user;
+  } catch (e) {
+    console.log("error", e);
+
+    throw new e();
+  }
+};
+// Find all users whose name starts with "A".
+
+const findUserStartA = async () => {
+  try {
+    const user = await User.find({ name: { $regex: /^A/ } });
     return user;
   } catch (e) {
     console.log("error", e);
@@ -74,5 +86,6 @@ export {
   findUserActive,
   findUserAge24,
   findUserAgeGt30,
-  findUserAge25BT30
+  findUserAge25BT30,
+  findUserStartA,
 };
