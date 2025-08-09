@@ -25,4 +25,13 @@ const findByName = async (name) => {
     throw new Error(e);
   }
 };
-export { getAllUsers, findUserById ,findByName};
+
+const findUserActive = async () => {
+  try {
+    const user = await User.find({ isActive: true });
+    return user;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+export { getAllUsers, findUserById, findByName,findUserActive };
